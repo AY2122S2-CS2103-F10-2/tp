@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
+import seedu.address.model.person.Customer;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.*;
@@ -10,7 +10,7 @@ import static seedu.address.logic.parser.CliSyntax.*;
 /**
  * Adds a person to the address book.
  */
-public class AddCommand extends Command {
+public class AddCustomerCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
@@ -32,12 +32,12 @@ public class AddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
 
-    private final Person toAdd;
+    private final Customer toAdd;
 
     /**
      * Creates an AddCommand to add the specified {@code Person}
      */
-    public AddCommand(Person person) {
+    public AddCustomerCommand(Customer person) {
         requireNonNull(person);
         toAdd = person;
     }
@@ -57,7 +57,7 @@ public class AddCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddCommand // instanceof handles nulls
-                && toAdd.equals(((AddCommand) other).toAdd));
+                || (other instanceof AddCustomerCommand // instanceof handles nulls
+                && toAdd.equals(((AddCustomerCommand) other).toAdd));
     }
 }
